@@ -6,15 +6,40 @@ package _05_snowflake;
 
 import java.awt.Color;
 
+import org.jointheleague.graphical.robot.Robot;
+
 
 public class Snowflake {
 	
 	public static void main(String[] args) {
 
 		// #1. Make a new Robot
+		
+		Robot walle = new Robot();
+		
+		walle.setX(300);
+		walle.setY(300);
 
 
 		// #2. Set your robot’s position to x=300 and y=300
+		walle.penDown();
+		walle.setSpeed(5);
+		for(int i = 0;i<6;i++) {
+			walle.setPenColor(Color.BLACK );
+			walle.move(50);
+			walle.turn(60);
+			if(i %2 == 0) {
+				walle.setPenColor(Color.BLUE);
+			}
+			else {
+				walle.setPenColor(Color.RED);
+			}
+			for(int j = 0;j<6;j++) {
+				walle.turn(-60);
+				walle.move(50);
+			}
+			walle.setPenColor(Color.BLACK);
+		}
 
 
 		// #3. Put the robot's pen down
